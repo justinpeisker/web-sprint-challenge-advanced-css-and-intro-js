@@ -269,11 +269,13 @@ Use removeArtist to do the following:
 
 For example, if removeArtist is invoked with the artists array and the number 0, it will remove Amedeo Modigliani from our dataset and return the number 19. */
 
-function removeArtist(array, index) {
+function removeArtist(array,index) {
   
-  // return array[index].slice(2,2);
+  array.splice(index, 1);
+
+  return array.length;
 }
-console.log(removeArtist(artists[0]));
+console.log('TASK 5', removeArtist(artists, 0));
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Use addArtist to do the following: 
@@ -291,11 +293,13 @@ Use addArtist to do the following:
 
 Example: addArtist(artists) should return the artists array with the above object added to the end of the array. */
 
-function addArtist(array) {
-  return array.push({'id''name''years''genre''nationality''bio'});
+function addArtist(array, id, name, years, genre, nationality, bio) {
+    array.push({id, name, years, genre, nationality, bio});
+
+    return array;
 }
 
-console.log(addArtist(20,'justin peisker', '1985 - 2021','web design', 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Labore cupiditate amet ipsam exercitationem recusandae distinctio non, inventore ut eos? Ipsa!'));
+console.log('TASK 6', addArtist(artists, 20, 'justin peisker', '1985 - 2021', 'web design', 'American', 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Labore cupiditate amet ipsam exercitationem recusandae distinctio non, inventore ut eos? Ipsa!'));
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 7: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Use lotsOfArt to do the following: 
@@ -304,9 +308,17 @@ Use lotsOfArt to do the following:
 
 For example lotsOfArt(artists); will return ["Amedeo Modigliani", "Rene Magritte", ... "Albrecht Dürer"]*/
 
-function lotsOfArt(/*Your Code Here*/) {
-  /*Your Code Here*/
+function lotsOfArt(array){
+  
+  let over100 = [];
+
+  for (let i = 0; i < array.length; i++){
+    if(array[i].paintings > 100){
+      over100.push(array[i].name);
+    }
+  }return over100;
 }
+console.log('TASK 7', lotsOfArt(artists));
 
 
 /* ***** END OF TASKS ***** */
